@@ -230,9 +230,11 @@ For uploaded PDFs, use persistent storage appropriate to your hosting environmen
 
 ## Live Demo
 
-- **Frontend:** Add your Vercel deployment URL here.
-- **Backend API:** Add your Render API URL here.
-- **API Documentation:** Add your deployed `/docs` URL here, if publicly accessible.
+- **Frontend Application:** [https://omni-core-henna.vercel.app/](https://omni-core-henna.vercel.app/)
+- **Backend API:** [https://omni-core-backend.onrender.com](https://omni-core-backend.onrender.com)
+- **API Documentation:** [https://omni-core-backend.onrender.com/api/v1/docs](https://omni-core-backend.onrender.com/api/v1/docs)
+
+*(Note: The backend is hosted on Render's free tier, so the first request might take up to 50 seconds to wake up the server.)*
 
 ## About
 

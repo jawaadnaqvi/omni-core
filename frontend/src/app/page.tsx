@@ -518,12 +518,12 @@ export default function Dashboard() {
               {!isLogin && (
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
-                  <input type="text" placeholder="Jawaad Naqvi" value={fullName} onChange={(e) => setFullName(e.target.value)} required className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-white placeholder-gray-500 transition-all" />
+                  <input type="text" placeholder="e.g Jawaad Naqvi" value={fullName} onChange={(e) => setFullName(e.target.value)} required className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-white placeholder-gray-500 transition-all" />
                 </div>
               )}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
-                <input type="email" placeholder="jawaad@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-white placeholder-gray-500 transition-all" />
+                <input type="email" placeholder="e.g jawaad@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-white placeholder-gray-500 transition-all" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Password</label>

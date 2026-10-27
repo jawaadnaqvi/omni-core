@@ -30,7 +30,7 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [isLoading, setIsLoading] = useState(true);
   const [showMobileProfile, setShowMobileProfile] = useState(false);
-
+  
   // AI Assistant Blinking State
   const [isBlinking, setIsBlinking] = useState(false);
 
@@ -297,7 +297,7 @@ export default function Dashboard() {
         setAuthMessage(`❌ ${data.detail || "Something went wrong"}`);
       }
     } catch (err) { 
-      setAuthMessage("❌ Backend se connect nahi ho paya."); 
+      setAuthMessage("❌ Failed to connect to the backend. Please try again later."); 
     } finally { 
       setAuthLoading(false); 
     }
@@ -355,7 +355,7 @@ export default function Dashboard() {
         fetchData(token); 
       } else { 
         const errorData = await res.json(); 
-        setMessage(`❌ ${errorData.detail || "Failed"}`); 
+        setMessage(`❌ ${errorData.detail || "Failed to create note"}`); 
       }
     } catch (err) { setMessage("❌ Network error."); }
   };
@@ -405,12 +405,12 @@ export default function Dashboard() {
     try {
       const res = await fetch(`${API_URL}/api/v1/notes/${noteId}/upload`, { method: "POST", headers: { Authorization: `Bearer ${token}` }, body: formData });
       if (res.ok) {
-        setMessage("✅ PDF uploaded."); 
+        setMessage("✅ PDF uploaded successfully."); 
         setFile(null);
         const fileInput = document.getElementById(`file-${noteId}`) as HTMLInputElement;
         if (fileInput) fileInput.value = "";
       } else setMessage("❌ Upload failed.");
-    } catch (err) { setMessage("❌ Upload failed."); } finally { setUploadingNoteId(null); }
+    } catch (err) { setMessage("❌ Upload failed due to a network error."); } finally { setUploadingNoteId(null); }
   };
 
   // 5. AI Chat Handler
@@ -432,6 +432,8 @@ export default function Dashboard() {
       if (res.ok) {
         const data = await res.json();
         setChatHistory(prev => [...prev, { role: "assistant", content: data.response, note_id: targetNote?.id }]);
+      } else {
+        setChatHistory(prev => [...prev, { role: "assistant", content: "❌ AI failed to respond. Please try again." }]);
       }
     } catch (err) { } finally { setIsAiTyping(false); }
   };

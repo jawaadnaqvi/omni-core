@@ -1,0 +1,23 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pgvector
+pydantic
+pydantic-settings
+pydantic[email]
+python-dotenv
+python-multipart
+
+# Authentication & Security
+passlib[bcrypt]
+bcrypt==4.0.1
+python-jose[cryptography]
+
+# File Processing
+pypdf
+
+# AI & LLM Integration
+litellm
+google-genai
+alembic
